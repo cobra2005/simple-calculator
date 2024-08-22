@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href=".\\style.css">
+</head>
+<body>
+    <div id="main">
+        <div id="input">
+            <input type="text" name="" id="" placeholder="Nhập số">
+            <input type="text" name="" id="" placeholder="Nhập phép tính">
+            <input type="text" name="" id="" placeholder="Nhập số">
+        </div>
+        <div id="solve">
+            Tính toán
+        </div>
+        <div id="result">
+            Kết quả
+        </div>        
+    </div>
+
+    <script>
+        var firstNumber = document.querySelector('input:first-child');
+        var operation = document.querySelector('input[placeholder="Nhập phép tính"]');
+        var lastNumber = document.querySelector('input:last-child');
+
+        var solveBtn = document.querySelector('#solve');
+        var result = document.querySelector('#result');
+        solveBtn.onclick = function() {
+            if(operation.value == '+') {
+                result.innerHTML = `${Number(firstNumber.value) + Number(lastNumber.value)}`;
+            }
+            if(operation.value == '-') {
+                result.innerHTML = `${Number(firstNumber.value) - Number(lastNumber.value)}`;
+            }
+            if(operation.value == '*') {
+                result.innerHTML = `${Number(firstNumber.value) * Number(lastNumber.value)}`;
+            }
+            if(operation.value == '/') {
+                if(lastNumber.value == '0') {
+                    result.innerHTML = 'Phép tính không hợp lệ';
+                }
+                else {
+                    result.innerHTML = `${Number(firstNumber.value) / Number(lastNumber.value)}`;
+                }
+            }
+        }
+    </script>
+
+    <script src="main.js"></script>
+</body>
+</html>
